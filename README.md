@@ -3,5 +3,5 @@ Diretório do sistema de gerenciamento para provedores de internet InsideProvide
 
 Grupo: 
 - João Gabriel de Abreu
-- Lucas Spier Baron
+- Lucas Baron Spier
 - Willian Pablo Colombo

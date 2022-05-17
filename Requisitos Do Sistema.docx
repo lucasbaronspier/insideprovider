@@ -12,11 +12,11 @@ RF10 - Deve mostrar o tipo e qual o equipamento de internet que o cliente possui
 
 
 Requisitos Não Funcionais
-RNF1 - O sistema deve ser de fácil utilização
-RNF2 - O sistema deve monitorar as velocidades de conexão contratadas
-RNF3 - Armazenar fatura/nota com opção de download online para clientes
-RNF4 - Deve informar quando um contrato esta perto da data de termino
-RNF5 - Ter opção de debito em conta
-RNF6 - O cliente deve ter acesso a relatorio de quantidade de dados gasta por ele
-RNF6 - O cliente deve ter acesso a relatório de quantidade de dados gasta por ele
+RNF1 - O sistema deve ser de fácil utilização.
+RNF2 - O sistema deve monitorar as velocidades de conexão contratadas.
+RNF3 - Armazenar fatura/nota com opção de download online para clientes.
+RNF4 - Deve informar quando um contrato esta perto da data de termino.
+RNF5 - Ter opção de debito em conta.
+RNF6 - O cliente deve ter acesso a relatorio de quantidade de dados gasta por ele.
+RNF6 - O cliente deve ter acesso a relatório de quantidade de dados gasta por ele.
 

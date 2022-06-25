@@ -126,43 +126,5 @@ COMMENT ON COLUMN usuario.dat_nas_usu IS 'Data de nascimento do usuário';
 COMMENT ON COLUMN usuario.sex_usu IS 'Sexo do usuario';
 COMMENT ON COLUMN usuario.tel_usu IS 'numero de telefone do usuario';
 
-ALTER TABLE atendimento ADD CONSTRAINT FKatendiment602046 FOREIGN KEY (cod_fun) REFERENCES funcionario (cod_fun);
-ALTER TABLE atendimento ADD CONSTRAINT FKatendiment732275 FOREIGN KEY (cod_con) REFERENCES contrato (cod_con);
-ALTER TABLE endereco ADD CONSTRAINT FKendereco937046 FOREIGN KEY (cod_usu) REFERENCES usuario (cod_usu);
-ALTER TABLE contrato ADD CONSTRAINT FKcontrato56265 FOREIGN KEY (cod_usu) REFERENCES usuario (cod_usu);
-ALTER TABLE fatura ADD CONSTRAINT FKfatura748255 FOREIGN KEY (cod_con) REFERENCES contrato (cod_con);
-ALTER TABLE contrato ADD CONSTRAINT FKcontrato462101 FOREIGN KEY (cod_pla, num_ser_eqp) REFERENCES plano_equipamento (cod_pla, num_ser_eqp);
-ALTER TABLE usuario ADD CONSTRAINT FKusuario92085 FOREIGN KEY (cod_fun) REFERENCES funcionario (cod_fun);
-ALTER TABLE plano_equipamento ADD CONSTRAINT FKplano_equi913211 FOREIGN KEY (num_ser_eqp) REFERENCES equipamento (num_ser_eqp);
-ALTER TABLE plano_equipamento ADD CONSTRAINT FKplano_equi621511 FOREIGN KEY (cod_pla) REFERENCES plano (cod_pla);
-
-INSERT INTO plano (cod_pla, vel_pla, val_pla, nom_pla)
-
-VALUES
-
-  (1,50,100,'plano básico 50MB'),
-
-  (2,100,110,'Plano 100MB'),
-
-  (3,150,120,'plano 150MB'),
-
-  (4,200,130,'plano 200MB'),
-
-  (5,300,150,'plano máximo 300MB');
- 
-INSERT INTO equipamento (num_ser_eqp, nom_equ, qtd_equ,val_equ ,dat_equ)
- 
-VALUES
-
-  (37544861,'mikrotik',1,150,'10/02/2022'),
-
-  (77358738,'Fiberhome',1,100,'26/10/2022'),
-
-  (66545704,'Huawei',1,120,'20/11/2022'),
-
-  (53693962,'Fiberhome',1,100,'29/03/2022'),
-
-  (82866207,'mikrotik',1,150,'3/02/2023');
-
 
 

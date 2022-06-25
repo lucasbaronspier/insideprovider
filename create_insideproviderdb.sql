@@ -19,7 +19,7 @@ CREATE TABLE contrato (
   dat_fin_con date NOT NULL, 
   cod_pla     numeric(2, 0) NOT NULL, 
   num_ser_eqp numeric(8, 0) NOT NULL, 
-  cpf_usu     numeric(5, 0) NOT NULL, 
+  cod_usu     numeric(5, 0) NOT NULL, 
   PRIMARY KEY (cod_con));
 
 COMMENT ON TABLE contrato IS 'Cadastro dos contratos';
@@ -36,7 +36,7 @@ CREATE TABLE endereco (
   rua_end varchar(80) NOT NULL, 
   num_end varchar(10) NOT NULL, 
   com_end varchar(40), 
-  cpf_usu numeric(5, 0) NOT NULL, 
+  cod_usu numeric(5, 0) NOT NULL, 
   PRIMARY KEY (cod_end));
 
 COMMENT ON TABLE endereco IS 'Cadastro de endereço do usuario';
@@ -119,7 +119,7 @@ CREATE TABLE usuario (
   PRIMARY KEY (cod_usu));
 
 COMMENT ON TABLE usuario IS 'Cadastro dos usuario no sistema';
-COMMENT ON COLUMN usuario.cod_usu IS 'CPF do usuario';
+COMMENT ON COLUMN usuario.cod_usu IS 'Código do usuario';
 COMMENT ON COLUMN usuario.cpf_cnpj_usu IS 'CPF ou CNPJ do usuário';
 COMMENT ON COLUMN usuario.nom_usu IS 'Nome do usuario';
 COMMENT ON COLUMN usuario.dat_nas_usu IS 'Data de nascimento do usuário';
@@ -128,8 +128,8 @@ COMMENT ON COLUMN usuario.tel_usu IS 'numero de telefone do usuario';
 
 ALTER TABLE atendimento ADD CONSTRAINT FKatendiment602046 FOREIGN KEY (cod_fun) REFERENCES funcionario (cod_fun);
 ALTER TABLE atendimento ADD CONSTRAINT FKatendiment732275 FOREIGN KEY (cod_con) REFERENCES contrato (cod_con);
-ALTER TABLE endereco ADD CONSTRAINT FKendereco937046 FOREIGN KEY (cpf_usu) REFERENCES usuario (cod_usu);
-ALTER TABLE contrato ADD CONSTRAINT FKcontrato56265 FOREIGN KEY (cpf_usu) REFERENCES usuario (cod_usu);
+ALTER TABLE endereco ADD CONSTRAINT FKendereco937046 FOREIGN KEY (cod_usu) REFERENCES usuario (cod_usu);
+ALTER TABLE contrato ADD CONSTRAINT FKcontrato56265 FOREIGN KEY (cod_usu) REFERENCES usuario (cod_usu);
 ALTER TABLE fatura ADD CONSTRAINT FKfatura748255 FOREIGN KEY (cod_con) REFERENCES contrato (cod_con);
 ALTER TABLE contrato ADD CONSTRAINT FKcontrato462101 FOREIGN KEY (cod_pla, num_ser_eqp) REFERENCES plano_equipamento (cod_pla, num_ser_eqp);
 ALTER TABLE usuario ADD CONSTRAINT FKusuario92085 FOREIGN KEY (cod_fun) REFERENCES funcionario (cod_fun);

@@ -35,7 +35,26 @@ VALUES
  		(4, 55690009172, 'Esther Fernanda Heloisa Cardoso', '11/03/1999', 'F', null, null),
  		(5, 91591158664, 'Anthony Isaac Enrico de Paula', '24/05/1988', 'M', null, null),
  		(6, 72474273026, 'Patrícia Rafaela Martins', '26/05/2000', 'F', null, null),
- 		(7, 54188860456, 'Benício Bryan Carvalho', '19/03/1994', 'M', null, null),
- 		(8, 55426726000182, 'Evelyn e Luiz Limpeza ME', '22/10/2017', null, null),
- 		(9, 10594393000162, 'Teresinha Lavanderia Ltda', '08/08/2019', null, null),
- 		(10, 06628951000196, 'Benício Publicidade e Propaganda Ltda', '03/08/2011', null, null);
+ 		(7, 4188860456, 'Benício Bryan Carvalho', '19/03/1994', 'M', null, null);
+ 		
+ 		insert into usuario (cod_usu, cpf_cnpj_usu, nom_usu, dat_nas_usu, sex_usu, tel_usu, cod_fun)
+	 values
+	 	(8, 55426726000182, 'Evelyn e Luiz Limpeza ME', '22/10/2017', null, null, null),
+ 		(9, 10594393000162, 'Teresinha Lavanderia Ltda', '08/08/2019', null, null, null),
+ 		(10, 06628951000196, 'Benício Publicidade e Propaganda Ltda', '03/08/2011', null, null, null);
+ 	
+ 	
+ 	-- Inserção da tabela plano_equipamento
+ 	select * from plano_equipamento;
+ 	insert into plano_equipamento (cod_pla, num_ser_eqp)
+ 		values
+ 			(1, 77358738),
+ 			(2, 53693962),
+ 			(3, 66545704),
+ 			(4, 37544861),
+ 			(5, 82866207);
+	 	
+ 
+ 	-- Inserção da tabela contrato
+ --	select * from contrato;
+ --	insert into contrato (cod_con, dat_ini_con, dat_fin_con, cod_pla, num_ser_eqp, )

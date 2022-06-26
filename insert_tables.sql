@@ -56,5 +56,51 @@ VALUES
 	 	
  
  	-- Inserção da tabela contrato
- --	select * from contrato;
- --	insert into contrato (cod_con, dat_ini_con, dat_fin_con, cod_pla, num_ser_eqp, )
+ 	select * from contrato;
+ 	insert into contrato (cod_con, dat_ini_con, dat_fin_con, cod_pla, num_ser_eqp, cod_usu)
+ 		values
+ 			(1, '20/02/2022', '20/02/2027', 3, 66545704, 1),
+ 			(2, '14/03/2022', '14/03/2027', 2, 53693962, 2),
+ 			(3, '18/04/2022', '18/04/2027', 3, 66545704, 4),
+ 			(4, '27/04/2022', '27/04/2027', 1, 77358738, 5),
+ 			(5, '04/05/2022', '04/05/2027', 5, 82866207, 6),
+ 			(6, '11/05/2022', '11/05/2027', 5, 82866207, 7),
+ 			(7, '18/06/2022', '18/06/2027', 1, 77358738, 8),
+ 			(8, '22/07/2022', '22/07/2027', 2, 53693962, 9),
+ 			(9, '22/09/2022', '22/09/2027', 4, 37544861, 10);
+ 			
+ 
+ 	-- Inserção da tabela fatura
+ 	select *  from fatura;
+ 	insert into fatura (cod_fat, dat_ven_fat, mes_fat,cod_con,qtd_tot_dds)
+ 	values 
+ 		(1, '05/03/2022', 'fev', 1, 162),
+ 		(2, '05/04/2022', 'mar', 2, 115),
+ 		(3, '05/05/2022', 'abr', 3, 154),
+ 		(4, '05/05/2022', 'abr', 4, 53),
+ 		(5, '05/06/2022', 'mai', 5, 293),
+ 		(6, '05/06/2022', 'mai', 6, 303),
+ 		(7, '05/07/2022', 'jun', 7, 64),
+ 		(8, '05/08/2022', 'jul', 8, 110),
+ 		(9, '05/10/2022', 'set', 9, 207);
+ 	
+ 	
+ 	-- Inserção da tabela atendimento
+ 	select * from atendimento;
+ 	insert into atendimento (cod_ate, dat_ate, obs_ate, cod_con, cod_fun)
+ 		values 
+ 			(1, '15/03/2022', null, 1, 1),
+ 			(2, '17/03/2022', null, 4, 1),
+ 			(3, '22/03/2022', null, 1, 1),
+ 			(4, '07/04/2022', null, 5, 1),
+ 			(5, '13/04/2022', null, 1, 1),
+ 			(6, '30/04/2022', null, 4, 1),
+ 			(7, '01/05/2022', null, 6, 1),
+ 			(8, '15/05/2022', null, 8, 1),
+ 			(9, '18/05/2022', null, 7, 1),
+ 			(10, '22/06/2022', null, 5, 1),
+ 			(11, '06/07/2022', null, 6, 1),
+ 			(12, '11/07/2022', null, 7, 1),
+ 			(13, '09/08/2022', null, 8, 1),
+ 			(14, '29/08/2022', null, 9, 1),
+ 			(15, '15/09/2022', null, 1, 1);

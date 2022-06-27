@@ -25,6 +25,7 @@ select u.nom_usu, p.nom_pla, p.vel_pla
 -- Relacionar o código do cliente, nome do cliente, quantidade total de 
 -- atendimentos nos meses pares de 2022. Ordene o relatório do cliente com mais
 -- atendimentos(em termos de quantidade) para o cliente com menos atendimentos;
+
 select u.cod_usu, u.nom_usu, count(a.cod_ate)
 	from usuario u
 	inner join contrato c on u.cod_usu = c.cod_usu
@@ -44,5 +45,6 @@ select u.cpf_cnpj_usu, u.nom_usu, f.qtd_tot_dds
 	inner join contrato c on u.cod_usu = c.cod_usu 
 	inner join fatura f on c.cod_con = f.cod_con
 	where u.sex_usu = 'M' and mod(extract(year from age(u.dat_nas_usu)), 2) = 0
-	and (extract(month from c.dat_ini_con)	 >= 1 and extract(month from c.dat_ini_con) <= 8 in (2022))
+	and extract(month from c.dat_ini_con) > 0 and extract(month from c.dat_ini_con) < 9
+	and extract(year from c.dat_ini_con) = 2022
 	order by f.qtd_tot_dds desc;

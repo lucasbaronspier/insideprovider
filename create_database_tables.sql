@@ -17,16 +17,14 @@ CREATE TABLE contrato (
   cod_con     numeric(5, 0) NOT NULL, 
   dat_ini_con date NOT NULL, 
   dat_fin_con date NOT NULL, 
-  cod_pla     numeric(2, 0) NOT NULL, 
-  num_ser_eqp numeric(8, 0) NOT NULL, 
   cod_usu     numeric(5, 0) NOT NULL, 
+  cod_pla    numeric(2, 0) NOT NULL, 
   PRIMARY KEY (cod_con));
 
 COMMENT ON TABLE contrato IS 'Cadastro dos contratos';
 COMMENT ON COLUMN contrato.cod_con IS 'Código do contrato';
 COMMENT ON COLUMN contrato.dat_ini_con IS 'Data de início do contrato';
 COMMENT ON COLUMN contrato.dat_fin_con IS 'Data final do contrato';
-COMMENT ON COLUMN contrato.num_ser_eqp IS 'número de série equipamento';
 
 CREATE TABLE endereco (
   cod_end numeric(4, 0) NOT NULL, 
@@ -37,7 +35,7 @@ CREATE TABLE endereco (
   num_end varchar(10) NOT NULL, 
   com_end varchar(40), 
   cod_usu numeric(5, 0) NOT NULL, 
-  PRIMARY KEY (cod_end));
+  PRIMARY KEY (cod_end))
 
 COMMENT ON TABLE endereco IS 'Cadastro de endereço do usuario';
 COMMENT ON COLUMN endereco.cod_end IS 'Codigo do endereço';
@@ -51,15 +49,14 @@ COMMENT ON COLUMN endereco.com_end IS 'Complemento do endereço';
 CREATE TABLE equipamento (
   num_ser_eqp numeric(8, 0) NOT NULL, 
   nom_equ     varchar(40) NOT NULL, 
-  qtd_equ     numeric(4, 0) NOT NULL, 
   val_equ     numeric(19, 0), 
   dat_equ     timestamp, 
+  cod_con     numeric(5, 0) NOT NULL, 
   PRIMARY KEY (num_ser_eqp));
 
 COMMENT ON TABLE equipamento IS 'Cadastro de equipamentos';
 COMMENT ON COLUMN equipamento.num_ser_eqp IS 'número de série do equipamento';
 COMMENT ON COLUMN equipamento.nom_equ IS 'Nome do equipamento';
-COMMENT ON COLUMN equipamento.qtd_equ IS 'Quantidade de equipamentos';
 COMMENT ON COLUMN equipamento.val_equ IS 'Valor de aquisição do equipamento';
 COMMENT ON COLUMN equipamento.dat_equ IS 'Data de aquisição do equipamento';
 
@@ -92,6 +89,7 @@ CREATE TABLE plano (
   vel_pla numeric(4, 0) NOT NULL, 
   val_pla numeric(6, 0) NOT NULL, 
   nom_pla varchar(40) NOT NULL, 
+  cod_con numeric(5, 0) NOT NULL, 
   PRIMARY KEY (cod_pla));
 
 COMMENT ON TABLE plano IS 'Cadastro dos planos disponiveis';
@@ -99,14 +97,6 @@ COMMENT ON COLUMN plano.cod_pla IS 'Codigo do plano';
 COMMENT ON COLUMN plano.vel_pla IS 'Velocidade do Plano em Mb/s';
 COMMENT ON COLUMN plano.val_pla IS 'Valor do plano';
 COMMENT ON COLUMN plano.nom_pla IS 'Nome do plano';
-
-CREATE TABLE plano_equipamento (
-  cod_pla     numeric(2, 0) NOT NULL, 
-  num_ser_eqp numeric(8, 0) NOT NULL, 
-  PRIMARY KEY (cod_pla, 
-  num_ser_eqp));
-
-COMMENT ON COLUMN plano_equipamento.num_ser_eqp IS 'número de série do equipamento';
 
 CREATE TABLE usuario (
   cod_usu      numeric(5, 0) NOT NULL, 
@@ -125,6 +115,5 @@ COMMENT ON COLUMN usuario.nom_usu IS 'Nome do usuario';
 COMMENT ON COLUMN usuario.dat_nas_usu IS 'Data de nascimento do usuário';
 COMMENT ON COLUMN usuario.sex_usu IS 'Sexo do usuario';
 COMMENT ON COLUMN usuario.tel_usu IS 'numero de telefone do usuario';
-
 
 

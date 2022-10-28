@@ -35,7 +35,7 @@ CREATE TABLE endereco (
   num_end varchar(10) NOT NULL, 
   com_end varchar(40), 
   cod_usu numeric(5, 0) NOT NULL, 
-  PRIMARY KEY (cod_end))
+  PRIMARY KEY (cod_end));
 
 COMMENT ON TABLE endereco IS 'Cadastro de endereço do usuario';
 COMMENT ON COLUMN endereco.cod_end IS 'Codigo do endereço';

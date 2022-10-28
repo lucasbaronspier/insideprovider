@@ -1,31 +1,13 @@
--- Inserção da tabela plano
-INSERT INTO plano (cod_pla, vel_pla, val_pla, nom_pla)
-VALUES
-  (1,50,100,'plano básico 50MB'),
-  (2,100,110,'Plano 100MB'),
-  (3,150,120,'plano 150MB'),
-  (4,200,130,'plano 200MB'),
-  (5,300,150,'plano máximo 300MB');
-
- -- Inserção da tabela equipamento
-INSERT INTO equipamento (num_ser_eqp, nom_equ, qtd_equ,val_equ ,dat_equ) 
-VALUES
-  (37544861,'mikrotik',1,150,'10/02/2022'),
-  (77358738,'Fiberhome',1,100,'26/10/2022'),
-  (66545704,'Huawei',1,120,'20/11/2022'),
-  (53693962,'Fiberhome',1,100,'29/03/2022'),
-  (82866207,'mikrotik',1,150,'3/02/2023');
- 
- --Inserção da tabela funcionário
+--Inserção da tabela funcionário
  --cod_fun (numeric 3), car_fun (varchar 40), set_fun (numeric 2)
  select*from funcionario;
  insert into funcionario (cod_fun, car_fun, set_fun)
  	values
  		(1, 'Suporte', 1),
  		(2, 'Supervisor suporte', 1);
- 		
-  
- --Inserção da tabela usuario
+
+
+--Inserção da tabela usuario
  select * from usuario;
  insert into usuario (cod_usu, cpf_cnpj_usu, nom_usu, dat_nas_usu, sex_usu, tel_usu, cod_fun)
 	 values
@@ -42,7 +24,40 @@ VALUES
 	 	(8, 55426726000182, 'Evelyn e Luiz Limpeza ME', '22/10/2017', null, null, null),
  		(9, 10594393000162, 'Teresinha Lavanderia Ltda', '08/08/2019', null, null, null),
  		(10, 06628951000196, 'Benício Publicidade e Propaganda Ltda', '03/08/2011', null, null, null);
- 	
+
+-- Inserção da tabela contrato
+ 	select * from contrato;
+ 	insert into contrato (cod_con, dat_ini_con, dat_fin_con, cod_pla, cod_usu)
+ 		values
+ 			(1, '20/02/2022', '20/02/2027', 3, 1),
+ 			(2, '14/03/2022', '14/03/2027', 2, 2),
+ 			(3, '18/04/2022', '18/04/2027', 3, 4),
+ 			(4, '27/04/2022', '27/04/2027', 1, 5),
+ 			(5, '04/05/2022', '04/05/2027', 5, 6),
+ 			(6, '11/05/2022', '11/05/2027', 5, 7),
+ 			(7, '18/06/2022', '18/06/2027', 1, 8),
+ 			(8, '22/07/2022', '22/07/2027', 2, 9),
+ 			(9, '22/09/2022', '22/09/2027', 4, 10);
+
+
+-- Inserção da tabela plano
+INSERT INTO plano (cod_pla, vel_pla, val_pla, nom_pla, cod_con)
+VALUES
+  (1,50,100,'plano básico 50MB'),
+  (2,100,110,'Plano 100MB'),
+  (3,150,120,'plano 150MB'),
+  (4,200,130,'plano 200MB'),
+  (5,300,150,'plano máximo 300MB');
+
+ -- Inserção da tabela equipamento
+INSERT INTO equipamento (num_ser_eqp, nom_equ, val_equ, dat_equ, cod_con) 
+VALUES
+  (37544861,'mikrotik',150,'10/02/2022', 1),
+  (77358738,'Fiberhome',100,'26/10/2022', 3),
+  (66545704,'Huawei',120,'20/11/2022', 5),
+  (53693962,'Fiberhome',100,'29/03/2022', 7),
+  (82866207,'mikrotik',150,'3/02/2023', 9);
+ 
  	
  	-- Inserção da tabela plano_equipamento
  	select * from plano_equipamento;
@@ -54,22 +69,7 @@ VALUES
  			(4, 37544861),
  			(5, 82866207);
 	 	
- 
- 	-- Inserção da tabela contrato
- 	select * from contrato;
- 	insert into contrato (cod_con, dat_ini_con, dat_fin_con, cod_pla, num_ser_eqp, cod_usu)
- 		values
- 			(1, '20/02/2022', '20/02/2027', 3, 66545704, 1),
- 			(2, '14/03/2022', '14/03/2027', 2, 53693962, 2),
- 			(3, '18/04/2022', '18/04/2027', 3, 66545704, 4),
- 			(4, '27/04/2022', '27/04/2027', 1, 77358738, 5),
- 			(5, '04/05/2022', '04/05/2027', 5, 82866207, 6),
- 			(6, '11/05/2022', '11/05/2027', 5, 82866207, 7),
- 			(7, '18/06/2022', '18/06/2027', 1, 77358738, 8),
- 			(8, '22/07/2022', '22/07/2027', 2, 53693962, 9),
- 			(9, '22/09/2022', '22/09/2027', 4, 37544861, 10);
- 			
- 
+
  	-- Inserção da tabela fatura
  	select *  from fatura;
  	insert into fatura (cod_fat, dat_ven_fat, mes_fat,cod_con,qtd_tot_dds)

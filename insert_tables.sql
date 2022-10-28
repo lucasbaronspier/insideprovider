@@ -1,6 +1,5 @@
 --Inserção da tabela funcionário
  --cod_fun (numeric 3), car_fun (varchar 40), set_fun (numeric 2)
- select*from funcionario;
  insert into funcionario (cod_fun, car_fun, set_fun)
  	values
  		(1, 'Suporte', 1),

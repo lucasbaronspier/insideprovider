@@ -1,5 +1,6 @@
 package br.edu.unoesc.springboot.insideprovider.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,4 +24,17 @@ public class GreetingsController {
     public String greetingText(@PathVariable String name) {
         return "Hello " + name + "!";
     }
+    
+    @Autowired // injeção de dependência
+	private usuarioRepository usuarioRepository;
+	
+	@RequestMapping(value = "testeGravar/{nome}", method = RequestMethod.GET)
+    	@ResponseStatus(HttpStatus.OK)
+   	 public String testeGravar(@PathVariable String nome){
+    		Usuario usuario = new usuario();
+    		usuario.setNome(nome);
+    		usuarioRepository.save(usuario);
+    		return "Gravado";    	
+    	}
+    
 }

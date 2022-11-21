@@ -1,5 +1,5 @@
 package br.edu.unoesc.springboot.insideprovider.model;
 
-public class Usuario {
+public class Contrato {
 
 }

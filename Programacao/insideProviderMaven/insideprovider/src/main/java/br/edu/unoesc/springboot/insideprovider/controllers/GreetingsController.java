@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.edu.unoesc.springboot.insideprovider.model.Funcionario;
+import br.edu.unoesc.springboot.insideprovider.model.Usuario;
+import br.edu.unoesc.springboot.insideprovider.repository.FuncionarioRepository;
+
 /**
  *
  * A sample greetings controller to return greeting text
@@ -26,14 +30,13 @@ public class GreetingsController {
     }
     
     @Autowired // injeção de dependência
-	private usuarioRepository usuarioRepository;
+	private FuncionarioRepository funcionarioRepository;
 	
 	@RequestMapping(value = "testeGravar/{nome}", method = RequestMethod.GET)
     	@ResponseStatus(HttpStatus.OK)
-   	 public String testeGravar(@PathVariable String nome){
-    		Usuario usuario = new usuario();
-    		usuario.setNome(nome);
-    		usuarioRepository.save(usuario);
+   	 public String testeGravar(@PathVariable double Codigo, String Cargo, double Setor){
+    		Funcionario funcionario = new Funcionario(Codigo,Cargo,Setor);
+    		funcionarioRepository.save(funcionario);
     		return "Gravado";    	
     	}
     

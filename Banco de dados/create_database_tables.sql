@@ -18,7 +18,8 @@ CREATE TABLE contrato (
   dat_ini_con date NOT NULL, 
   dat_fin_con date NOT NULL, 
   cod_usu     numeric(5, 0) NOT NULL, 
-  cod_pla    numeric(2, 0) NOT NULL, 
+  cod_pla     numeric(2, 0) NOT NULL, 
+  num_ser_eqp numeric(8, 0) NOT NULL, 
   PRIMARY KEY (cod_con));
 
 COMMENT ON TABLE contrato IS 'Cadastro dos contratos';
@@ -51,7 +52,6 @@ CREATE TABLE equipamento (
   nom_equ     varchar(40) NOT NULL, 
   val_equ     numeric(19, 0), 
   dat_equ     timestamp, 
-  cod_con     numeric(5, 0) NOT NULL, 
   PRIMARY KEY (num_ser_eqp));
 
 COMMENT ON TABLE equipamento IS 'Cadastro de equipamentos';
@@ -63,7 +63,7 @@ COMMENT ON COLUMN equipamento.dat_equ IS 'Data de aquisição do equipamento';
 CREATE TABLE fatura (
   cod_fat     numeric(10, 0) NOT NULL, 
   dat_ven_fat date NOT NULL, 
-  mes_fat     char(7) NOT NULL, 
+  mes_fat     varchar(20) NOT NULL, 
   cod_con     numeric(5, 0) NOT NULL, 
   qtd_tot_dds numeric(4, 0), 
   PRIMARY KEY (cod_fat));
@@ -89,7 +89,6 @@ CREATE TABLE plano (
   vel_pla numeric(4, 0) NOT NULL, 
   val_pla numeric(6, 0) NOT NULL, 
   nom_pla varchar(40) NOT NULL, 
-  cod_con numeric(5, 0) NOT NULL, 
   PRIMARY KEY (cod_pla));
 
 COMMENT ON TABLE plano IS 'Cadastro dos planos disponiveis';

@@ -26,21 +26,21 @@
 
 -- Inserção da tabela contrato
  	select * from contrato;
- 	insert into contrato (cod_con, dat_ini_con, dat_fin_con, cod_pla, cod_usu)
+ 	insert into contrato (cod_con, dat_ini_con, dat_fin_con, cod_pla, cod_usu, num_ser_eqp)
  		values
- 			(1, '20/02/2022', '20/02/2027', 3, 1),
- 			(2, '14/03/2022', '14/03/2027', 2, 2),
- 			(3, '18/04/2022', '18/04/2027', 3, 4),
- 			(4, '27/04/2022', '27/04/2027', 1, 5),
- 			(5, '04/05/2022', '04/05/2027', 5, 6),
- 			(6, '11/05/2022', '11/05/2027', 5, 7),
- 			(7, '18/06/2022', '18/06/2027', 1, 8),
- 			(8, '22/07/2022', '22/07/2027', 2, 9),
- 			(9, '22/09/2022', '22/09/2027', 4, 10);
+ 			(1, '20/02/2022', '20/02/2027', 3, 1, 37544861),
+ 			(2, '14/03/2022', '14/03/2027', 2, 2, 37544861),
+ 			(3, '18/04/2022', '18/04/2027', 3, 4, 77358738),
+ 			(4, '27/04/2022', '27/04/2027', 1, 5, 77358738),
+ 			(5, '04/05/2022', '04/05/2027', 5, 6, 66545704),
+ 			(6, '11/05/2022', '11/05/2027', 5, 7, 66545704),
+ 			(7, '18/06/2022', '18/06/2027', 1, 8, 66545704),
+ 			(8, '22/07/2022', '22/07/2027', 2, 9, 66545704),
+ 			(9, '22/09/2022', '22/09/2027', 4, 10, 66545704);
 
 
 -- Inserção da tabela plano
-INSERT INTO plano (cod_pla, vel_pla, val_pla, nom_pla, cod_con)
+INSERT INTO plano (cod_pla, vel_pla, val_pla, nom_pla)
 VALUES
   (1,50,100,'plano básico 50MB'),
   (2,100,110,'Plano 100MB'),
@@ -49,26 +49,14 @@ VALUES
   (5,300,150,'plano máximo 300MB');
 
  -- Inserção da tabela equipamento
-INSERT INTO equipamento (num_ser_eqp, nom_equ, val_equ, dat_equ, cod_con) 
+INSERT INTO equipamento (num_ser_eqp, nom_equ, val_equ, dat_equ) 
 VALUES
-  (37544861,'mikrotik',150,'10/02/2022', 1),
-  (77358738,'Fiberhome',100,'26/10/2022', 3),
-  (66545704,'Huawei',120,'20/11/2022', 5),
-  (53693962,'Fiberhome',100,'29/03/2022', 7),
-  (82866207,'mikrotik',150,'3/02/2023', 9);
- 
- 	
- 	-- Inserção da tabela plano_equipamento
- 	select * from plano_equipamento;
- 	insert into plano_equipamento (cod_pla, num_ser_eqp)
- 		values
- 			(1, 77358738),
- 			(2, 53693962),
- 			(3, 66545704),
- 			(4, 37544861),
- 			(5, 82866207);
+  (37544861,'mikrotik',150,'10/02/2022'),
+  (77358738,'Fiberhome',100,'26/10/2022'),
+  (66545704,'Huawei',120,'20/11/2022'),
+  (53693962,'Fiberhome',100,'29/03/2022'),
+  (82866207,'mikrotik',150,'3/02/2023');
 	 	
-
  	-- Inserção da tabela fatura
  	select *  from fatura;
  	insert into fatura (cod_fat, dat_ven_fat, mes_fat,cod_con,qtd_tot_dds)

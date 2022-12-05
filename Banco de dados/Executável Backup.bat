@@ -8,17 +8,17 @@ color a
 cls
 ECHO.
 ECHO    ---------------------------------------
-ECHO    -- * MENU BACKUP INSIDEPROVIDER  * -- 
-ECHO    -- *   ESCOLHA UMA OPCAO ABAIXO    * --
+ECHO    --       BACKUP BANCO DE DADOS       --
+ECHO	   --	        INSIDEPROVIDER          -- 
 ECHO    ---------------------------------------
 ECHO.  
 ECHO    [1] BACKUP
-ECHO    [X] Sair
+ECHO    [2] SAIR
 ECHO.
 set /p MenuInicial=
 if '%MenuInicial%'=='1' goto MenuInicial_backup
-if '%MenuInicial%'=='x' goto sair_MenuInicial
-if not %MenuInicial%=="1,X" (
+if '%MenuInicial%'=='2' goto sair_MenuInicial
+if not %MenuInicial%=="1,2" (
 ECHO    Opcao [%MenuInicial%] invalida.
 ECHO    Verifique o menu acima.
 

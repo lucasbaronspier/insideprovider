@@ -1,0 +1,20 @@
+CREATE FUNCTION verificaFatura() RETURNS trigger
+AS $$
+    BEGIN
+        
+        IF NEW.cod_fat EXISTS THEN
+            RAISE EXCEPTION 'Codigo Da Fatura Ja Existe';
+        END IF;
+        IF NEW.qtd_tot_dds is NULL THEN
+            RAISE EXCEPTION 'Quantidade nao pode ser nula';
+        END IF;
+        IF NEW.qtd_tot_dds < 1 THEN
+            RAISE EXCEPTION 'Nao e possivel faturar clientes sem consumo de banda';
+        END IF;
+       
+    END;
+$$
+LANGUAGE plpgsql;
+
+CREATE TRIGGER verificaFatura BEFORE INSERT OR UPDATE ON fatura
+    FOR EACH ROW EXECUTE FUNCTION verificaFatura();

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+	crossorigin="anonymous">
+
+<title>Spring boot - teste</title>
+</head>
+<body>
+
+	<div class="container text-center">
+		<div class="row">
+			<div class="col">
+				<a href='index.html'><button type="button"
+						class="btn btn-success">Funcionarios</button></a>
+			</div>
+			<div class="col">
+				<a href='usuarios.html'><button type="button"
+						class="btn btn-success">Usuarios</button></a>
+			</div>
+			<div class="col">
+				<a href='enderecos.html'><button type="button"
+						class="btn btn-success">Endereços</button></a>
+			</div>
+		</div>
+	</div>
+
+	<form action="" id="formCadastroUser">
+		<div class="mb-3">
+			<label for="codigo" class="form-label">Codigo</label> <input
+				type="number" class="form-control" id="codigo">
+		</div>
+		<div class="mb-3">
+			<label for="ufend" class="form-label">UF</label> <input
+				type="text" class="form-control" id="ufend"
+				placeholder="Informe a UF" required="required">
+		</div>
+		<div class="mb-3">
+			<label for="cep" class="form-label">CEP</label> <input type="number"
+				class="form-control" id="cep">
+		</div>
+		<div class="mb-3">
+			<label for="bairro" class="form-label">Bairro</label> <input
+				type="text" class="form-control" id="bairro">
+		</div>
+		<div class="mb-3">
+			<label for="rua" class="form-label">Rua</label> <input
+				type="text" class="form-control" id="rua">
+		</div>
+		<div class="mb-3">
+			<label for="numend" class="form-label">Numero</label> <input
+				type="number" class="form-control" id="numend">
+		</div>
+		<div class="mb-3">
+			<label for="comend" class="form-label">Complemento</label>
+			<input type="text" class="form-control" id="comend">
+		</div>
+		<div class="mb-3">
+			<label for="codusu" class="form-label">Codigo do Usuario</label>
+			<input type="number" class="form-control" id="codusu">
+		</div>
+	</form>
+
+	<button type="button" class="btn btn-primary" onclick="salvarUsuario()">Salvar</button>
+	<button type="button" class="btn btn-secondary"
+		onclick="document.getElementById('formCadastroUser').reset();">Limpar</button>
+	<button type="button" class="btn btn-success" data-bs-toggle="modal"
+		data-bs-target="#modalPesquisarUser">Pesquisar</button>
+
+
+	<div class="modal fade" id="modalPesquisarUser" tabindex="-1"
+		aria-labelledby="Pesquisar Usuários" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Pesquisa de
+						Usuários:</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Fechar"></button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="mb-3">
+							<label for="nomeBusca" class="col-form-label">Informe o
+								nome:</label> <input type="text" class="form-control" id="nomeBusca">
+						</div>
+						<button type="button" class="btn btn-success"
+							onclick="pesquisarUsuario()">Buscar</button>
+					</form>
+
+				</div>
+
+				<div style="height: 300px; overflow: auto;">
+					<table class="table table-striped" id="tabelaresultados">
+						<thead>
+							<tr>
+								<th scope="col">Codigo</th>
+								<th scope="col">CPF/CNPJ</th>
+								<th scope="col">Nome</th>
+								<th scope="col">Nascimento</th>
+								<th scope="col">Sexo</th>
+								<th scope="col">Telefone</th>
+								<th scope="col">Codigo de Funcionario</th>
+							</tr>
+						</thead>
+						<tbody>
+
+						</tbody>
+					</table>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-bs-dismiss="modal">Fechar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<script type="text/javascript">
+		function salvarUsuario() {
+			var id = $("#codigo").val();
+			var uf = $("#ufend").val();
+			var cep = $("#cep").val();
+			var bairro = $("#bairro").val();
+			var rua = $("#rua").val();
+			var numend = $("#numend").val();
+			var comend = $("#comend").val();
+			var codusu = $("#codusu").val();
+
+			if (nome == "") {
+				alert("Informe a UF! ");
+				$("#ufend").focus();
+				return;
+			} else {
+				$.ajax({
+					method : "POST",
+					url : "endereco",
+					data : JSON.stringify({
+						codEnd : id,
+						ufEnd : uf,
+						cepEnd : cep,
+						baiEnd : bairro,
+						ruaEnd : rua,
+						numEnd : numend,
+						comEnd : comend,
+						codUsu : codusu
+					}),
+					contentType : "application/json; charset=utf-8",
+					success : function(response) {
+						$("#id").val(response.id);
+						alert("Salvo com sucesso!");
+					}
+				}).fail(function(xhr, status, errorThrown) {
+					alert("Erro ao salvar: " + xhr.responseText);
+				});
+			}
+		}
+	</script>
+
+
+	<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+		integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+		crossorigin="anonymous"></script>
+
+	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+		crossorigin="anonymous"></script>
+
+
+	</script>
+</body>
+</html>

@@ -45,7 +45,6 @@ public class Endereco implements Serializable{
 
 	public Endereco(Long codEnd, String ufEnd, Integer cepEnd, String baiEnd, String ruaEnd, String numEnd,
 			String comEnd, Integer codUsu) {
-		super();
 		this.codEnd = codEnd;
 		this.ufEnd = ufEnd;
 		this.cepEnd = cepEnd;

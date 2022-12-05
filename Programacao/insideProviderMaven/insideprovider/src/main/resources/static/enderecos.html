@@ -35,34 +35,36 @@
 	<form action="" id="formCadastroUser">
 		<div class="mb-3">
 			<label for="codigo" class="form-label">Codigo</label> <input
-				type="number" class="form-control" id="codigo" readonly="readonly">
-		</div>
-
-
-		<div class="mb-3">
-			<label for="cpfcnpjusu" class="form-label">CPF/CNPJ</label> <input
-				type="number" class="form-control" id="cpfcnpjusu"
-				placeholder="Informe o cpf/cnpj" required="required">
+				type="number" class="form-control" id="codigo">
 		</div>
 		<div class="mb-3">
-			<label for="nome" class="form-label">Nome</label> <input type="text"
-				class="form-control" id="nome">
+			<label for="ufend" class="form-label">UF</label> <input
+				type="text" class="form-control" id="ufend"
+				placeholder="Informe a UF" required="required">
 		</div>
 		<div class="mb-3">
-			<label for="datnasc" class="form-label">Data de nascimento</label> <input
-				type="number" class="form-control" id="datnasc">
+			<label for="cep" class="form-label">CEP</label> <input type="number"
+				class="form-control" id="cep">
 		</div>
 		<div class="mb-3">
-			<label for="sexusu" class="form-label">Sexo (M ou F)</label> <input
-				type="text" class="form-control" id="sexusu">
+			<label for="bairro" class="form-label">Bairro</label> <input
+				type="text" class="form-control" id="bairro">
 		</div>
 		<div class="mb-3">
-			<label for="telusu" class="form-label">Telefone</label> <input
-				type="number" class="form-control" id="telusu">
+			<label for="rua" class="form-label">Rua</label> <input
+				type="text" class="form-control" id="rua">
 		</div>
 		<div class="mb-3">
-			<label for="codfun" class="form-label">Codigo de Funcionario</label>
-			<input type="number" class="form-control" id="codfun">
+			<label for="numend" class="form-label">Numero</label> <input
+				type="number" class="form-control" id="numend">
+		</div>
+		<div class="mb-3">
+			<label for="comend" class="form-label">Complemento</label>
+			<input type="text" class="form-control" id="comend">
+		</div>
+		<div class="mb-3">
+			<label for="codusu" class="form-label">Codigo do Usuario</label>
+			<input type="number" class="form-control" id="codusu">
 		</div>
 	</form>
 
@@ -127,29 +129,31 @@
 	<script type="text/javascript">
 		function salvarUsuario() {
 			var id = $("#codigo").val();
-			var cpf = $("#cpfcnpjusu").val();
-			var nome = $("#nome").val();
-			var datnasc = $("#datnasc").val();
-			var sexusu = $("#sexusu").val();
-			var telusu = $("#telusu").val();
-			var codfun = $("#codfun").val();
+			var uf = $("#ufend").val();
+			var cep = $("#cep").val();
+			var bairro = $("#bairro").val();
+			var rua = $("#rua").val();
+			var numend = $("#numend").val();
+			var comend = $("#comend").val();
+			var codusu = $("#codusu").val();
 
 			if (nome == "") {
-				alert("Informe o cnpj/cpf! ");
-				$("#cpfcnpjusu").focus();
+				alert("Informe a UF! ");
+				$("#ufend").focus();
 				return;
 			} else {
 				$.ajax({
 					method : "POST",
-					url : "usuario",
+					url : "endereco",
 					data : JSON.stringify({
-						codUsu : id,
-						cpfCnpjUsuario : cpf,
-						nomUsu : nome,
-						nascimentoUsuario : datnasc,
-						sexoUsuario : sexusu,
-						telefoneUsuario : telusu,
-						codFun : codfun
+						codEnd : id,
+						ufEnd : uf,
+						cepEnd : cep,
+						baiEnd : bairro,
+						ruaEnd : rua,
+						numEnd : numend,
+						comEnd : comend,
+						codUsu : codusu
 					}),
 					contentType : "application/json; charset=utf-8",
 					success : function(response) {

@@ -31,22 +31,20 @@ cls
 ECHO O nome da base restaurada deve ser "Backup.bak". >> sgbd.log
 :Menu_restore
 ECHO.
-color 4
+color a
 ECHO    --------------------------------------------------------
-ECHO    -- *              LEIA COM ATENCAO!                 * --
-timeout 4 > NUL
-color 0B
-ECHO    -- *      O NOME DO ARQUIVO DEVE SER backup.bak     * -- 
-ECHO    -- *   O ARQUIVO DEVE ESTAR EM C:\Backup_InsideProvider   * --
+ECHO    --          O NOME DO ARQUIVO DEVE SER MUDADO         --
+ECHO    --               PARA "backup.bak"                    --
+ECHO    --         O ARQUIVO DEVE ESTAR PRESENTE              --
+ECHO    --           EM C:\Backup_InsideProvider              --
 ECHO    --------------------------------------------------------
 ECHO.  
 ECHO    [1] PROSSEGUIR 
-ECHO    [X] SAIR
+ECHO    [2] SAIR
 ECHO.
 set /p Menu_restore=
 if '%Menu_restore%'=='1' goto Restore_prosseguir
-if '%Menu_restore%'=='x' goto MenuInicial
-if '%Menu_restore%'=='X' goto MenuInicial
+if '%Menu_restore%'=='2' goto MenuInicial
 :Restore_prosseguir
 cd C:\Backup_InsideProvider
 ECHO.

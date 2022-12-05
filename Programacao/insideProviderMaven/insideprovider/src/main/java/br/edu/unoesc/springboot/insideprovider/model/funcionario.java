@@ -14,7 +14,16 @@ public class Funcionario implements Serializable{
 	private String carFun;
 	private int setFun;
 	
-	
+	//Construtores
+	public Funcionario(Long codFun, String carFun, int setFun) {
+		this.codFun = codFun;
+		this.carFun = carFun;
+		this.setFun = setFun;
+	}
+
+	public Funcionario() {
+	}
+
 	//getters e setters
 	public Long getCodFun() {
 		return codFun;

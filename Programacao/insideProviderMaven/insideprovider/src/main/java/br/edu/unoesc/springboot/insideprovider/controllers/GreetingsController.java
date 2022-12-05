@@ -32,9 +32,6 @@ public class GreetingsController {
     //
     @Autowired // injeção de dependência
 	private FuncionarioRepository funcionarioRepository;
-    
-    @Autowired
-    private UsuarioRepository usuarioRepository;
 	
     //
     //teste para gravar funcionario
@@ -49,17 +46,6 @@ public class GreetingsController {
     	}
 	
 	//
-	//teste gravar usuario
-	//
-	@RequestMapping(value = "gravausu/{nome}", method = RequestMethod.GET)
-	@ResponseStatus(HttpStatus.OK)
-	 public String gravausu(@PathVariable String nome){
-		Usuario usuario= new Usuario();
-		usuario.setNomUsu(nome);
-		usuarioRepository.save(usuario);
-		return "Gravado";    	
-	}
-	//
 	//listar funcionarios
 	//
 	@GetMapping(value="listatodos")	
@@ -69,15 +55,7 @@ public class GreetingsController {
 	    	return new ResponseEntity<List<Funcionario>>(funcionarios, HttpStatus.OK) ;
 	    }
 	
-	//
-	//listar usuarios
-	//
-	@GetMapping(value="listausuarios")
-	   @ResponseBody
-	    public ResponseEntity<List<Usuario>>listaUsuarios(){
-	    	List<Usuario> usuarios = usuarioRepository.findAll();
-	    	return new ResponseEntity<List<Usuario>>(usuarios, HttpStatus.OK) ;
-	    }
+
 	
 	
 	//

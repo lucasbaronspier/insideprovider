@@ -78,9 +78,10 @@
 			var id = $("#codigo").val();
 			var cpf = $("#cpfcnpjusu").val();
 			var nome = $("#nome").val();
-			var datnasc = $("datnasc").val();
-			var sexusu = $("sexusu").val();
-			var telusu = $("telusu").val();
+			var datnasc = $("#datnasc").val();
+			var sexusu = $("#sexusu").val();
+			var telusu = $("#telusu").val();
+			var codfun = $("#codfun").val();
 			
 			if (nome == "") {
 				alert("Informe o cnpj/cpf! ");
@@ -89,13 +90,15 @@
 			} else {
 				$.ajax({
 					method : "POST",
-					url : "salvarUsuario",
+					url : "usuario",
 					data : JSON.stringify({
-						cpfCnpjUsuario : cpf,
-						nomUsu : nome,
-						nascimentoUsuario : datnasc,
-						sexoUsuario : sexusu,
-						telefoneUsuario : telusu
+						codUsu : id,
+					    cpfCnpjUsuario : cpf,
+					    nomUsu : nome,
+					    nascimentoUsuario : datnasc,
+					    sexoUsuario: sexusu,
+					    telefoneUsuario : telusu,
+					    codFun : codfun
 					}),
 					contentType : "application/json; charset=utf-8",
 					success : function(response) {

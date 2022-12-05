@@ -3,70 +3,118 @@ package br.edu.unoesc.springboot.insideprovider.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="usuario")
 public class Usuario implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
+	@GeneratedValue
+	@Column(name="cod_usu")
 	private Long codUsu;
-	private int cpfCnpjUsuario;
+	
+	@Column(name="cpf_cnpj_usu")
+	private Double cpfCnpjUsuario;
+	
+	@Column(name="nom_usu")
 	private String nomUsu;
+	
+	@Column(name="dat_nas_usu")
 	private Date nascimentoUsuario;
+	
+	@Column(name="sex_usu")
 	private String sexoUsuario;
-	private int telefoneUsuario;
-	private int codFunc;
 	
+	@Column(name="tel_usu")
+	private Double telefoneUsuario;
 	
+	@Column(name="cod_fun")
+	private Double codFun;
+
 	
 
 	
-	//getters e setters
+	//Construtores
 	
-	public int getCodFunc() {
-		return codFunc;
+	public Usuario() {
 	}
-	public void setCodFunc(int codFunc) {
-		this.codFunc = codFunc;
+
+	public Usuario(Long codUsu, double cpfCnpjUsuario, String nomUsu, Date nascimentoUsuario, String sexoUsuario,
+			double telefoneUsuario, double codFun) {
+		super();
+		this.codUsu = codUsu;
+		this.cpfCnpjUsuario = cpfCnpjUsuario;
+		this.nomUsu = nomUsu;
+		this.nascimentoUsuario = nascimentoUsuario;
+		this.sexoUsuario = sexoUsuario;
+		this.telefoneUsuario = telefoneUsuario;
+		this.codFun = codFun;
 	}
+
+	//getters e setters
 	public Long getCodUsu() {
 		return codUsu;
 	}
+
 	public void setCodUsu(Long codUsu) {
 		this.codUsu = codUsu;
 	}
-	public int getCpfCnpjUsuario() {
+
+	public double getCpfCnpjUsuario() {
 		return cpfCnpjUsuario;
 	}
-	public void setCpfCnpjUsuario(int cpfCnpjUsuario) {
+
+	public void setCpfCnpjUsuario(double cpfCnpjUsuario) {
 		this.cpfCnpjUsuario = cpfCnpjUsuario;
 	}
+
 	public String getNomUsu() {
 		return nomUsu;
 	}
+
 	public void setNomUsu(String nomUsu) {
 		this.nomUsu = nomUsu;
 	}
+
 	public Date getNascimentoUsuario() {
 		return nascimentoUsuario;
 	}
+
 	public void setNascimentoUsuario(Date nascimentoUsuario) {
 		this.nascimentoUsuario = nascimentoUsuario;
 	}
+
 	public String getSexoUsuario() {
 		return sexoUsuario;
 	}
+
 	public void setSexoUsuario(String sexoUsuario) {
 		this.sexoUsuario = sexoUsuario;
 	}
-	public int getTelefoneUsuario() {
+
+	public double getTelefoneUsuario() {
 		return telefoneUsuario;
 	}
-	public void setTelefoneUsuario(int telefoneUsuario) {
+
+	public void setTelefoneUsuario(double telefoneUsuario) {
 		this.telefoneUsuario = telefoneUsuario;
 	}
+
+	public double getCodFun() {
+		return codFun;
+	}
+
+	public void setCodFun(double codFun) {
+		this.codFun = codFun;
+	}
+
+	
 	
 	
 

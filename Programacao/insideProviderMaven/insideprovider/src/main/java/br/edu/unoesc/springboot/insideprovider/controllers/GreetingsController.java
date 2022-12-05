@@ -69,16 +69,6 @@ public class GreetingsController {
     }
 	
 	//
-	//salvar dados com formato json para usuario
-	//
-	@PostMapping(value = "salvarUsuario")
-    @ResponseBody
-    public ResponseEntity<Usuario> salvar(@RequestBody Usuario usuario){
-    	Usuario user = usuarioRepository.save(usuario);
-    	return new ResponseEntity<Usuario>(user, HttpStatus.CREATED);
-    }
-	
-	//
 	//teste excluir registros
 	//
 	@DeleteMapping(value = "delete")

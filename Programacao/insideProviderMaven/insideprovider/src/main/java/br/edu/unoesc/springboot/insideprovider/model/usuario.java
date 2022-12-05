@@ -38,16 +38,16 @@ public class Usuario implements Serializable{
 	private Double codFun;
 
 	
-
-	
 	//Construtores
 	
 	public Usuario() {
 	}
 
-	public Usuario(Long codUsu, double cpfCnpjUsuario, String nomUsu, Date nascimentoUsuario, String sexoUsuario,
-			double telefoneUsuario, double codFun) {
-		super();
+
+
+
+	public Usuario(Long codUsu, Double cpfCnpjUsuario, String nomUsu, Date nascimentoUsuario, String sexoUsuario,
+			Double telefoneUsuario, Double codFun) {
 		this.codUsu = codUsu;
 		this.cpfCnpjUsuario = cpfCnpjUsuario;
 		this.nomUsu = nomUsu;
@@ -56,63 +56,106 @@ public class Usuario implements Serializable{
 		this.telefoneUsuario = telefoneUsuario;
 		this.codFun = codFun;
 	}
-
+	
+	
 	//getters e setters
 	public Long getCodUsu() {
 		return codUsu;
 	}
 
+
+
+
 	public void setCodUsu(Long codUsu) {
 		this.codUsu = codUsu;
 	}
 
-	public double getCpfCnpjUsuario() {
+
+
+
+	public Double getCpfCnpjUsuario() {
 		return cpfCnpjUsuario;
 	}
 
-	public void setCpfCnpjUsuario(double cpfCnpjUsuario) {
+
+
+
+	public void setCpfCnpjUsuario(Double cpfCnpjUsuario) {
 		this.cpfCnpjUsuario = cpfCnpjUsuario;
 	}
+
+
+
 
 	public String getNomUsu() {
 		return nomUsu;
 	}
 
+
+
+
 	public void setNomUsu(String nomUsu) {
 		this.nomUsu = nomUsu;
 	}
+
+
+
 
 	public Date getNascimentoUsuario() {
 		return nascimentoUsuario;
 	}
 
+
+
+
 	public void setNascimentoUsuario(Date nascimentoUsuario) {
 		this.nascimentoUsuario = nascimentoUsuario;
 	}
+
+
+
 
 	public String getSexoUsuario() {
 		return sexoUsuario;
 	}
 
+
+
+
 	public void setSexoUsuario(String sexoUsuario) {
 		this.sexoUsuario = sexoUsuario;
 	}
 
-	public double getTelefoneUsuario() {
+
+
+
+	public Double getTelefoneUsuario() {
 		return telefoneUsuario;
 	}
 
-	public void setTelefoneUsuario(double telefoneUsuario) {
+
+
+
+	public void setTelefoneUsuario(Double telefoneUsuario) {
 		this.telefoneUsuario = telefoneUsuario;
 	}
 
-	public double getCodFun() {
+
+
+
+	public Double getCodFun() {
 		return codFun;
 	}
 
-	public void setCodFun(double codFun) {
+
+
+
+	public void setCodFun(Double codFun) {
 		this.codFun = codFun;
 	}
+
+	
+	
 
 	
 	

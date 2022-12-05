@@ -14,46 +14,50 @@
 <title>Spring boot - teste</title>
 </head>
 <body>
-	
+
 	<div class="container text-center">
-	  <div class="row">
-	    <div class="col">
-	      <a href='index.html'><button type="button" class="btn btn-success">Funcionarios</button></a>
-	    </div>
-	    <div class="col">
-	      <a href='usuarios.html'><button type="button" class="btn btn-success">Usuarios</button></a>
-	    </div>
-	    <div class="col">
-	      <button type="button" class="btn btn-success">Endereços</button>
-	    </div>
-	  </div>
+		<div class="row">
+			<div class="col">
+				<a href='index.html'><button type="button"
+						class="btn btn-success">Funcionarios</button></a>
+			</div>
+			<div class="col">
+				<a href='usuarios.html'><button type="button"
+						class="btn btn-success">Usuarios</button></a>
+			</div>
+			<div class="col">
+				<a href='enderecos.html'><button type="button" class="btn btn-success">Endereços</button></a>
+			</div>
+		</div>
 	</div>
-	
+
 	<form action="" id="formCadastroUser">
 		<div class="mb-3">
-			<label for="codigo" class="form-label">Codigo</label>
-			<input type="number" class="form-control" id="codigo">
+			<label for="codigo" class="form-label">Codigo</label> <input
+				type="number" class="form-control" id="codigo" readonly="readonly">
 		</div>
+
+
 		<div class="mb-3">
 			<label for="cpfcnpjusu" class="form-label">CPF/CNPJ</label> <input
 				type="number" class="form-control" id="cpfcnpjusu"
 				placeholder="Informe o cpf/cnpj" required="required">
 		</div>
 		<div class="mb-3">
-			<label for="nome" class="form-label">Nome</label>
-			<input type="text" class="form-control" id="nome">
+			<label for="nome" class="form-label">Nome</label> <input type="text"
+				class="form-control" id="nome">
 		</div>
 		<div class="mb-3">
-			<label for="datnasc" class="form-label">Data de nascimento</label>
-			<input type="number" class="form-control" id="datnasc">
+			<label for="datnasc" class="form-label">Data de nascimento</label> <input
+				type="number" class="form-control" id="datnasc">
 		</div>
 		<div class="mb-3">
-			<label for="sexusu" class="form-label">Sexo (M ou F)</label>
-			<input type="text" class="form-control" id="sexusu">
+			<label for="sexusu" class="form-label">Sexo (M ou F)</label> <input
+				type="text" class="form-control" id="sexusu">
 		</div>
 		<div class="mb-3">
-			<label for="telusu" class="form-label">Telefone</label>
-			<input type="number" class="form-control" id="telusu">
+			<label for="telusu" class="form-label">Telefone</label> <input
+				type="number" class="form-control" id="telusu">
 		</div>
 		<div class="mb-3">
 			<label for="codfun" class="form-label">Codigo de Funcionario</label>
@@ -63,15 +67,62 @@
 
 	<button type="button" class="btn btn-primary" onclick="salvarUsuario()">Salvar</button>
 	<button type="button" class="btn btn-secondary"
-		onclick="document.getElementById('formCadastroUser').reset();">Novo</button>
+		onclick="document.getElementById('formCadastroUser').reset();">Limpar</button>
 	<button type="button" class="btn btn-success" data-bs-toggle="modal"
 		data-bs-target="#modalPesquisarUser">Pesquisar</button>
 
+
+	<div class="modal fade" id="modalPesquisarUser" tabindex="-1"
+		aria-labelledby="Pesquisar Usuários" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Pesquisa de
+						Usuários:</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Fechar"></button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="mb-3">
+							<label for="nomeBusca" class="col-form-label">Informe o
+								nome:</label> <input type="text" class="form-control" id="nomeBusca">
+						</div>
+						<button type="button" class="btn btn-success" onclick="pesquisarUsuario()">Buscar</button>
+					</form>
+
+				</div>
+
+				<div style="height: 300px; overflow: auto;">
+					<table class="table table-striped" id="tabelaresultados">
+						<thead>
+							<tr>
+								<th scope="col">Codigo</th>
+								<th scope="col">CPF/CNPJ</th>
+								<th scope="col">Nome</th>
+								<th scope="col">Nascimento</th>
+								<th scope="col">Sexo</th>
+								<th scope="col">Telefone</th>
+								<th scope="col">Codigo de Funcionario</th>
+							</tr>
+						</thead>
+						<tbody>
+
+						</tbody>
+					</table>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-bs-dismiss="modal">Fechar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	
-	
+
 	<script type="text/javascript">
-	
-		
 	
 	
 		function salvarUsuario() {
@@ -82,7 +133,7 @@
 			var sexusu = $("#sexusu").val();
 			var telusu = $("#telusu").val();
 			var codfun = $("#codfun").val();
-			
+
 			if (nome == "") {
 				alert("Informe o cnpj/cpf! ");
 				$("#cpfcnpjusu").focus();
@@ -93,12 +144,12 @@
 					url : "usuario",
 					data : JSON.stringify({
 						codUsu : id,
-					    cpfCnpjUsuario : cpf,
-					    nomUsu : nome,
-					    nascimentoUsuario : datnasc,
-					    sexoUsuario: sexusu,
-					    telefoneUsuario : telusu,
-					    codFun : codfun
+						cpfCnpjUsuario : cpf,
+						nomUsu : nome,
+						nascimentoUsuario : datnasc,
+						sexoUsuario : sexusu,
+						telefoneUsuario : telusu,
+						codFun : codfun
 					}),
 					contentType : "application/json; charset=utf-8",
 					success : function(response) {
@@ -110,11 +161,9 @@
 				});
 			}
 		}
-		
-		
 	</script>
-	   
-	
+
+
 	<script src="https://code.jquery.com/jquery-3.6.1.min.js"
 		integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
 		crossorigin="anonymous"></script>

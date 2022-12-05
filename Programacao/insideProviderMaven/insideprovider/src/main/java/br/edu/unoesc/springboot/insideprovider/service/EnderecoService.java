@@ -5,6 +5,12 @@ import java.util.Optional;
 
 import br.edu.unoesc.springboot.insideprovider.model.Endereco;
 
+/**Interface para Service de Endereco.
+* @author InsideProvider
+* @version 1.00
+* @since Release da aplicação
+*/
+
 public interface EnderecoService {
 	
 	List<Endereco> findAllEndereco();

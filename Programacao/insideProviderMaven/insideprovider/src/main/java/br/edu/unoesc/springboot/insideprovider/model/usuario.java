@@ -9,6 +9,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**Classe para objetos do tipo Usuario, onde serão contidos, valores e métodos para o mesmo.
+* @author InsideProvider
+* @version 1.00
+* @since Release da aplicação
+*/
+
+
 @Entity
 @Table(name="usuario")
 public class Usuario implements Serializable{
@@ -58,6 +65,10 @@ public class Usuario implements Serializable{
 	}
 	
 	
+	
+	/** Metodo para retorno do codigo do usuario
+	 * @return Long
+	 */
 	//getters e setters
 	public Long getCodUsu() {
 		return codUsu;
@@ -66,6 +77,10 @@ public class Usuario implements Serializable{
 
 
 
+	
+	/** Metodo para atualizar o codigo do usuario
+	 * @param codUsu
+	 */
 	public void setCodUsu(Long codUsu) {
 		this.codUsu = codUsu;
 	}
@@ -73,6 +88,10 @@ public class Usuario implements Serializable{
 
 
 
+	
+	/** Metodo para retorno do cpf/cnpj do usuario
+	 * @return Double
+	 */
 	public Double getCpfCnpjUsuario() {
 		return cpfCnpjUsuario;
 	}
@@ -80,6 +99,10 @@ public class Usuario implements Serializable{
 
 
 
+	
+	/** Metodo para atualizar o cpf/cnpj do usuario
+	 * @param cpfCnpjUsuario
+	 */
 	public void setCpfCnpjUsuario(Double cpfCnpjUsuario) {
 		this.cpfCnpjUsuario = cpfCnpjUsuario;
 	}
@@ -87,6 +110,10 @@ public class Usuario implements Serializable{
 
 
 
+	
+	/** Metodo para retorno do nome do usuario
+	 * @return String
+	 */
 	public String getNomUsu() {
 		return nomUsu;
 	}
@@ -94,6 +121,10 @@ public class Usuario implements Serializable{
 
 
 
+	
+	/** Metodo para atualizar o nome do usuario
+	 * @param nomUsu
+	 */
 	public void setNomUsu(String nomUsu) {
 		this.nomUsu = nomUsu;
 	}
@@ -101,6 +132,10 @@ public class Usuario implements Serializable{
 
 
 
+	
+	/** Metodo para retorno do nascimento do usuario
+	 * @return Date
+	 */
 	public Date getNascimentoUsuario() {
 		return nascimentoUsuario;
 	}
@@ -108,6 +143,10 @@ public class Usuario implements Serializable{
 
 
 
+	
+	/** Metodo para atualizar o nascimento do usuario
+	 * @param nascimentoUsuario
+	 */
 	public void setNascimentoUsuario(Date nascimentoUsuario) {
 		this.nascimentoUsuario = nascimentoUsuario;
 	}
@@ -115,6 +154,10 @@ public class Usuario implements Serializable{
 
 
 
+	
+	/** Metodo para retorno do sexo do usuario
+	 * @return String
+	 */
 	public String getSexoUsuario() {
 		return sexoUsuario;
 	}
@@ -122,6 +165,10 @@ public class Usuario implements Serializable{
 
 
 
+	
+	/** Metodo para atualizar o sexo do usuario
+	 * @param sexoUsuario
+	 */
 	public void setSexoUsuario(String sexoUsuario) {
 		this.sexoUsuario = sexoUsuario;
 	}
@@ -129,6 +176,10 @@ public class Usuario implements Serializable{
 
 
 
+	
+	/** Metodo para retorno do telefone do usuario
+	 * @return Double
+	 */
 	public Double getTelefoneUsuario() {
 		return telefoneUsuario;
 	}
@@ -136,6 +187,10 @@ public class Usuario implements Serializable{
 
 
 
+	
+	/** Metodo para atualizar o telefone do usuario
+	 * @param telefoneUsuario
+	 */
 	public void setTelefoneUsuario(Double telefoneUsuario) {
 		this.telefoneUsuario = telefoneUsuario;
 	}
@@ -143,6 +198,10 @@ public class Usuario implements Serializable{
 
 
 
+	
+	/** Metodo para retorno do codigo de funcionario do usuario
+	 * @return Double
+	 */
 	public Double getCodFun() {
 		return codFun;
 	}
@@ -150,6 +209,10 @@ public class Usuario implements Serializable{
 
 
 
+	
+	/** Metodo para atualizar o codigo de funcionario do usuario
+	 * @param codFun
+	 */
 	public void setCodFun(Double codFun) {
 		this.codFun = codFun;
 	}

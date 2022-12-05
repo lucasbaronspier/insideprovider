@@ -19,9 +19,13 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.unoesc.springboot.insideprovider.model.Funcionario;
-import br.edu.unoesc.springboot.insideprovider.model.Usuario;
 import br.edu.unoesc.springboot.insideprovider.repository.FuncionarioRepository;
-import br.edu.unoesc.springboot.insideprovider.repository.UsuarioRepository;
+
+/**Classe Controller para Funcionario
+* @author InsideProvider
+* @version 1.00
+* @since Release da aplicação
+*/
 
 @RestController
 public class GreetingsController {
@@ -33,7 +37,12 @@ public class GreetingsController {
     @Autowired // injeção de dependência
 	private FuncionarioRepository funcionarioRepository;
 	
-    //
+    
+	/** 
+	 * @param nome
+	 * @return String
+	 */
+	//
     //teste para gravar funcionario
     //
 	@RequestMapping(value = "testeGravar/{nome}", method = RequestMethod.GET)
@@ -45,6 +54,10 @@ public class GreetingsController {
     		return "Gravado";    	
     	}
 	
+	
+	/** Mapeamento GET para listar funcionarios
+	 * @return ResponseEntity<List<Funcionario>>
+	 */
 	//
 	//listar funcionarios
 	//
@@ -58,6 +71,11 @@ public class GreetingsController {
 
 	
 	
+	
+	/** Mapeamento POST para salvar funcionario
+	 * @param funcionario
+	 * @return ResponseEntity<Funcionario>
+	 */
 	//
 	//salvar dados com formato json para funcionario
 	//
@@ -68,6 +86,11 @@ public class GreetingsController {
     	return new ResponseEntity<Funcionario>(user, HttpStatus.CREATED);
     }
 	
+	
+	/** Mapeamento DELETE para excluir funcionario pelo id
+	 * @param iduser
+	 * @return ResponseEntity<String>
+	 */
 	//
 	//teste excluir registros
 	//
@@ -78,6 +101,11 @@ public class GreetingsController {
 		return new ResponseEntity<String>("Usuario excluido com sucesso", HttpStatus.OK);
 	}
 	
+	
+	/** Mapeamento GET para buscar funcionario pelo id
+	 * @param iduser
+	 * @return ResponseEntity<Funcionario>
+	 */
 	//
 	//teste buscar  funcionario
 	//
@@ -88,6 +116,11 @@ public class GreetingsController {
 		return new ResponseEntity<Funcionario>(funcionario, HttpStatus.OK);
 	}
 	
+	
+	/** Mapeamento PUT para atualizar funcionario
+	 * @param funcionario
+	 * @return ResponseEntity<?>
+	 */
 	//
 	//teste para atualizar funcionario
 	//
